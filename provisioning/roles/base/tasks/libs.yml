@@ -1,0 +1,14 @@
+- name: Install basic tools
+  yum: name={{ item }} state=present
+  with_items:
+    - net-tools
+    - vim
+    - wget
+    - telnet
+    - whois
+    - tree
+    - redhat-lsb
+    - screen
+    - nc
+    - tmux
+    - bash-completion

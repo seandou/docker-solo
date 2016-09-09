@@ -2,4 +2,21 @@
 - name: Set timezone
   shell: timedatectl set-timezone Asia/Shanghai
 
-- 
+- name: Install ntpdate
+  yum: name=ntp state=present
+
+- name: Sync time
+  shell: /usr/sbin/ntpdate cn.pool.ntp.org
+  ignore_errors: yes
+
+- name: Replace base repo with aliyun mirror
+  copy: src=CentOS-7.repo dest=/etc/yum.repos.d/CentOS-Base.repo owner=root group=root mode=0644
+
+- name: Make yum cache
+  shell: yum clean all; yum makecache fast
+
+- name: Replace crontab
+  copy: src=crontab dest=/etc/crontab owner=root group=root mode=0644
+
+- name: Restart crond
+  shell: systemctl restart crond

@@ -1,3 +1,3 @@
 ---
 - include: init.yml
-# - include: libs.yml
+- include: libs.yml

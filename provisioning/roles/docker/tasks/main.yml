@@ -1,0 +1,6 @@
+---
+- name: docker
+  yum: name=docker state=present
+
+- name: start docker
+  shell: systemctl enable docker; systemctl start docker
