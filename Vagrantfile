@@ -6,7 +6,7 @@
 # settings
 $hostname = "docker-solo"
 $ip = "192.168.33.10"
-$debug = true
+$debug = false
 
 Vagrant.configure(2) do |config|
   # Vagrant centos 7 box
