@@ -57,7 +57,16 @@ config.vm.synced_folder ".", "/share"
 config.vm.synced_folder "#{HOME}/Projects", "/root/projects"
 ```
 
-## Install [DockerUI](https://github.com/kevana/ui-for-docker) to manage your docker host
+## Useful tools
+
+### [Docker Compose](https://docs.docker.com/compose/overview/)
+
+```
+curl -L https://github.com/docker/compose/releases/download/1.8.0/docker-compose-`uname -s`-`uname -m` > /usr/local/bin/docker-compose
+chmod +x /usr/local/bin/docker-compose
+```
+
+### [DockerUI](https://github.com/kevana/ui-for-docker)
 
 ```
 docker run -d -p 9000:9000 --restart=always --name ui-for-docker --privileged \
