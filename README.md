@@ -56,3 +56,13 @@ config.vm.synced_folder ".", "/vagrant", :disabled => true
 config.vm.synced_folder ".", "/share"
 config.vm.synced_folder "#{HOME}/Projects", "/root/projects"
 ```
+
+## Install [DockerUI](https://github.com/kevana/ui-for-docker) to manage your docker host
+
+```
+docker run -d -p 9000:9000 --restart=always --name ui-for-docker --privileged \
+  -v /var/run/docker.sock:/var/run/docker.sock \
+  uifd/ui-for-docker
+```
+
+Browse `http://192.168.33.10:9000/` to visit it.
