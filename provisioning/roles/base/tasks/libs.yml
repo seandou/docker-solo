@@ -12,3 +12,19 @@
     - nc
     - tmux
     - bash-completion
+
+- name: Install dev tools
+  yum: name={{ item }} state=present
+  with_items:
+    - kernel-devel
+    - gcc
+    - gcc-c++
+    - glibc
+    - rpm-build
+    - make
+    - cmake
+    - automake
+    - autoconf
+    - patch
+    - libgcc
+    - libtool
