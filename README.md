@@ -26,7 +26,7 @@ Clone docker-solo project
 git clone https://github.com/seandou/docker-solo.git
 ```
 
-Run `vagrant up` to boot up docker server with provision
+Run `vagrant up` to boot up solo server with provision
 
 ```
 cd docker-solo
@@ -51,7 +51,7 @@ Comment out lines for using docker easily:
 # Run vagrant ssh as root user
 config.ssh.username = 'root'
 
-# Share $HOME/Projects between your os and docker server, you can edit the file with your favorite editor and run docker commands on docker server.
+# Share $HOME/Projects between your os and solo server, you can edit the file with your favorite editor and run docker commands on solo server.
 config.vm.synced_folder ".", "/vagrant", :disabled => true
 config.vm.synced_folder ".", "/share"
 config.vm.synced_folder "#{HOME}/Projects", "/root/projects"
