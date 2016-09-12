@@ -30,8 +30,8 @@ Vagrant.configure(2) do |config|
   # https://github.com/dotless-de/vagrant-vbguest
   config.vbguest.auto_update = false
 
-  # config.vm.synced_folder ".", "/vagrant", :disabled => true
-  # config.vm.synced_folder ".", "/share"
+  config.vm.synced_folder ".", "/vagrant", :disabled => true
+  config.vm.synced_folder ".", "/share"
 
   # https://www.vagrantup.com/docs/provisioning/ansible_intro.html
   config.vm.provision "ansible" do |ansible|
