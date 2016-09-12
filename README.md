@@ -12,7 +12,13 @@
 vagrant plugin install vagrant-vbguest
 ```
 
-### Boot up your solo server
+- Install [vagrant-env](https://github.com/gosuri/vagrant-env)
+
+```
+vagrant plugin install vagrant-env
+```
+
+### Initialize your solo server
 
 Clone docker-solo project
 
@@ -20,7 +26,7 @@ Clone docker-solo project
 git clone https://github.com/seandou/docker-solo.git
 ```
 
-Run `vagrant up` to boot up docker server
+Run `vagrant up` to boot up docker server with provision
 
 ```
 cd docker-solo
@@ -33,4 +39,20 @@ You can install it automatically by set `config.vbguest.auto_update` to true or 
 
 ```
 vagrant vbguest --auto-reboot --no-provision
+```
+
+### Dance with docker
+
+After vm host is up, your can ssh to server by `vagrant ssh`.
+
+Comment out lines for using docker easily:
+
+```
+# Run vagrant ssh as root user
+config.ssh.username = 'root'
+
+# Share $HOME/Projects between your os and docker server, you can edit the file with your favorite editor and run docker commands on docker server.
+config.vm.synced_folder ".", "/vagrant", :disabled => true
+config.vm.synced_folder ".", "/share"
+config.vm.synced_folder "#{HOME}/Projects", "/root/projects"
 ```
