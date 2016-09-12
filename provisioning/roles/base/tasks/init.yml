@@ -20,3 +20,9 @@
 
 - name: Restart crond
   shell: systemctl restart crond
+
+- name: Create root ssh directory
+  file: path=/root/.ssh state=directory owner=root group=root mode=0700 recurse=yes
+
+- name: Copy vagrant authorized_keys
+  shell: cp /home/vagrant/.ssh/authorized_keys /root/.ssh/authorized_keys && chmod 600 /root/.ssh/authorized_keys
