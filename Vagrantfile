@@ -32,10 +32,10 @@ Vagrant.configure(2) do |config|
   config.vbguest.auto_update = false
 
   # comment out me after initialization
-  config.ssh.username = 'root'
-  config.vm.synced_folder ".", "/vagrant", :disabled => true
-  config.vm.synced_folder ".", "/share"
-  config.vm.synced_folder "#{HOME}/Projects", "/root/projects"
+  # config.ssh.username = 'root'
+  # config.vm.synced_folder ".", "/vagrant", :disabled => true
+  # config.vm.synced_folder ".", "/share"
+  # config.vm.synced_folder "#{HOME}/Projects", "/root/projects"
 
   # https://www.vagrantup.com/docs/provisioning/ansible_intro.html
   config.vm.provision "ansible" do |ansible|
