@@ -10,10 +10,8 @@ DEBUG = false
 HOME = Dir.home
 
 Vagrant.configure(2) do |config|
-  # Default vagrant centos 7 box is downloaded from https://atlas.hashicorp.com/centos/boxes/7
-  # when vagrant up first time. If centos/7 box downloading slow, you can download it from
-  # http://cloud.centos.org/centos/7/vagrant/x86_64/images/
-  # Then install vagrant box add centos/7 CentOS-7-x86_64-Vagrant.xxx.box
+  # Vagrant centos 7 box
+  # https://atlas.hashicorp.com/centos/boxes/7
   config.vm.box = "centos/7"
 
   config.vm.provider "virtualbox" do |vb|
