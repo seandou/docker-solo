@@ -60,7 +60,7 @@ config.vm.synced_folder "#{HOME}/Projects", "/root/projects"
 
 ### Use shipyard
 
-[Shipyard](http://shipyard-project.com/) is installed as default management tool. you can browse `http://192.168.33.10:8080/` to visit it.
+[Shipyard](http://shipyard-project.com/) is installed as default management tool, you can browse `http://192.168.33.10:8080/` to visit it. Default username is `admin` and password is `shipyard`.
 
 ## Other useful tools
 
