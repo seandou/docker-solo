@@ -1,0 +1,8 @@
+- name: Clear tmp file
+  shell: rm -rf /tmp/install-shipyard
+
+- name: Copy script
+  copy: src=install-shipyard dest=/tmp/install-shipyard owner=root group=root mode=0755
+
+- name: Install shipyard
+  shell: ./install-shipyard chdir=/tmp/

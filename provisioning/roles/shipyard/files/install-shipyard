@@ -1,0 +1,52 @@
+#!/bin/bash
+
+# http://shipyard-project.com/docs/deploy/manual/
+
+# Datastore
+docker run \
+    -ti \
+    -d \
+    --restart=always \
+    --name shipyard-rethinkdb \
+    rethinkdb
+
+# Discovery
+docker run \
+    -ti \
+    -d \
+    -p 4001:4001 \
+    -p 7001:7001 \
+    --restart=always \
+    --name shipyard-discovery \
+    microbox/etcd -name discovery
+
+# Swarm Manager
+docker run \
+    -ti \
+    -d \
+    --restart=always \
+    --name shipyard-swarm-manager \
+    swarm:latest \
+    manage --host tcp://0.0.0.0:3375 etcd://192.168.33.10:4001
+
+# Swarm Agent
+docker run \
+    -ti \
+    -d \
+    --restart=always \
+    --name shipyard-swarm-agent \
+    swarm:latest \
+    join --addr 192.168.33.10:2375 etcd://192.168.33.10:4001
+
+# Controller
+docker run \
+    -ti \
+    -d \
+    --restart=always \
+    --name shipyard-controller \
+    --link shipyard-rethinkdb:rethinkdb \
+    --link shipyard-swarm-manager:swarm \
+    -p 8080:8080 \
+    shipyard/shipyard:latest \
+    server \
+    -d tcp://swarm:3375
