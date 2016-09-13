@@ -14,4 +14,4 @@ PATH=/sbin:/bin:/usr/sbin:/usr/bin
 # *  *  *  *  * user-name  command to be executed
 
 # sync date
-*/30 *  *  *  * root /usr/sbin/ntpdate cn.pool.ntp.org
+*/30 *  *  *  * root /usr/sbin/ntpdate cn.pool.ntp.org >> /dev/null
