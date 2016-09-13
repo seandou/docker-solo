@@ -28,3 +28,13 @@
     - patch
     - libgcc
     - libtool
+
+- name: Install sa tools
+  yum: name={{ item }} state=present
+  with_items:
+    - htop
+    - iftop
+    - iotop
+    - nmap
+    - nc
+    - lsof
