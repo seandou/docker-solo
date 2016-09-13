@@ -1,6 +1,9 @@
 ---
-- name: docker
+- name: Install docker engine
   yum: name=docker state=present
 
-- name: start docker
+- name: Set docker config
+  copy: src=docker dest=/etc/sysconfig/docker owner=root group=root mode=0644
+
+- name: Enable and start docker server
   shell: systemctl enable docker; systemctl start docker
