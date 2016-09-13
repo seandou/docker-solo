@@ -4,15 +4,16 @@
 
 ### Preparation
 
-- Install [VirtualBox and Extension Pack](https://www.virtualbox.org/wiki/Downloads)
-- Install [Vagrant](https://www.vagrantup.com/downloads.html)
-- Install [vagrant-vbguest](https://github.com/dotless-de/vagrant-vbguest)
+- [VirtualBox and Extension Pack](https://www.virtualbox.org/wiki/Downloads)
+- [Ansible](http://docs.ansible.com/ansible/intro_installation.html#installation)
+- [Vagrant](https://www.vagrantup.com/downloads.html)
+- [vagrant-vbguest](https://github.com/dotless-de/vagrant-vbguest)
 
 ```
 vagrant plugin install vagrant-vbguest
 ```
 
-- Install [vagrant-env](https://github.com/gosuri/vagrant-env)
+- [vagrant-env](https://github.com/gosuri/vagrant-env) (optional)
 
 ```
 vagrant plugin install vagrant-env
