@@ -1,0 +1,8 @@
+- name: Clear tmp file
+  shell: rm -rf /tmp/install-shipyard-agent
+
+- name: Copy script
+  copy: src=install-shipyard-agent dest=/tmp/install-shipyard-agent owner=root group=root mode=0755
+
+- name: Install shipyard agent
+  shell: ./install-shipyard-agent chdir=/tmp/

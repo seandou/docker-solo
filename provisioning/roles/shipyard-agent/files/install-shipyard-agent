@@ -1,0 +1,12 @@
+#!/bin/bash
+
+# http://shipyard-project.com/docs/deploy/manual/
+
+# Swarm Agent
+docker run \
+    -ti \
+    -d \
+    --restart=always \
+    --name shipyard-swarm-agent \
+    swarm:latest \
+    join --addr 0.0.0.0:2375 etcd://192.168.10.10:4001
