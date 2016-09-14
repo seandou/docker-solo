@@ -1,0 +1,8 @@
+---
+- name: docker host
+  hosts: all
+  sudo: yes
+  roles:
+    - base
+    - docker
+    # - shipyard
