@@ -27,6 +27,12 @@ Clone docker-solo project
 git clone https://github.com/seandou/docker-solo.git
 ```
 
+You can just use the default keys or generate rsa keys pair yourself:
+
+```
+ssh-keygen -t rsa -b 4096 -C "docker-solo" -f provisioning/roles/base/files/keys/id_rsa
+```
+
 Run `vagrant up` to boot up solo server with provision
 
 ```

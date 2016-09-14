@@ -33,6 +33,8 @@ Vagrant.configure(2) do |config|
 
   # comment out me after initialization
   # config.ssh.username = 'root'
+  # config.ssh.insert_key = false
+  # config.ssh.private_key_path = ["provisioning/roles/base/files/keys/id_rsa", "~/.vagrant.d/insecure_private_key"]
   # config.vm.synced_folder ".", "/vagrant", :disabled => true
   # config.vm.synced_folder ".", "/share"
   # config.vm.synced_folder "#{HOME}/Projects/docker", "/root/projects"

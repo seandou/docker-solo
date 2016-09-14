@@ -29,5 +29,5 @@
 - name: Create root ssh directory
   file: path=/root/.ssh state=directory owner=root group=root mode=0700 recurse=yes
 
-- name: Copy vagrant authorized_keys
-  shell: cp /home/vagrant/.ssh/authorized_keys /root/.ssh/authorized_keys && chmod 600 /root/.ssh/authorized_keys
+- name: Use your keys for vagrant ssh as root user
+  copy: src=keys/id_rsa.pub dest=/root/.ssh/authorized_keys owner=root group=root mode=0600
