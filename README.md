@@ -40,17 +40,9 @@ cd docker-solo
 vagrant up
 ```
 
-Now you get a docker host, but it could not share files with your own system for missing [guest additions](https://www.virtualbox.org/manual/ch04.html)
-
-You can install it automatically by set `config.vbguest.auto_update` to true or just install it manually:
-
-```
-vagrant vbguest --auto-reboot --no-provision
-```
-
 ### Dance with docker
 
-After vm host is up, your can ssh to server by `vagrant ssh`.
+After vm host is up, your can ssh to server by `vagrant ssh main`.
 
 Comment out lines for using docker easily:
 
@@ -65,7 +57,7 @@ config.vm.synced_folder "#{HOME}/Projects/docker", "/root/projects"
 
 ### Use shipyard
 
-[Shipyard](http://shipyard-project.com/) is installed as default management tool, you can browse [http://192.168.33.10:8080/](http://192.168.33.10:8080/) to visit it. Default username is `admin` and password is `shipyard`.
+[Shipyard](http://shipyard-project.com/) is installed as default management tool, you can browse [http://192.168.10.10:8080/](http://192.168.10.10:8080/) to visit it. Default username is `admin` and password is `shipyard`.
 
 ## Other useful tools
 
@@ -84,4 +76,8 @@ docker run -d -p 9000:9000 --restart=always --name ui-for-docker --privileged \
   uifd/ui-for-docker
 ```
 
-Browse [http://192.168.33.10:9000/](http://192.168.33.10:9000/) to visit it.
+Browse [http://192.168.10.10:9000/](http://192.168.10.10:9000/) to visit it.
+
+## Resources
+
+- [centos vagrant images](http://cloud.centos.org/centos/7/vagrant/x86_64/images/)
