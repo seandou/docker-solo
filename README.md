@@ -55,18 +55,17 @@ After vm host is up, your can ssh to server by `vagrant ssh`.
 Comment out lines for using docker easily:
 
 ```
-# Run vagrant ssh as root user
 config.ssh.username = 'root'
-
-# Share $HOME/Projects between your os and solo server, you can edit the file with your favorite editor and run docker commands on solo server.
+config.ssh.insert_key = false
+config.ssh.private_key_path = ["provisioning/roles/base/files/keys/id_rsa", "~/.vagrant.d/insecure_private_key"]
 config.vm.synced_folder ".", "/vagrant", :disabled => true
 config.vm.synced_folder ".", "/share"
-config.vm.synced_folder "#{HOME}/Projects", "/root/projects"
+config.vm.synced_folder "#{HOME}/Projects/docker", "/root/projects"
 ```
 
 ### Use shipyard
 
-[Shipyard](http://shipyard-project.com/) is installed as default management tool, you can browse `http://192.168.33.10:8080/` to visit it. Default username is `admin` and password is `shipyard`.
+[Shipyard](http://shipyard-project.com/) is installed as default management tool, you can browse [http://192.168.33.10:8080/](http://192.168.33.10:8080/) to visit it. Default username is `admin` and password is `shipyard`.
 
 ## Other useful tools
 
@@ -85,4 +84,4 @@ docker run -d -p 9000:9000 --restart=always --name ui-for-docker --privileged \
   uifd/ui-for-docker
 ```
 
-Browse `http://192.168.33.10:9000/` to visit it.
+Browse [http://192.168.33.10:9000/](http://192.168.33.10:9000/) to visit it.
