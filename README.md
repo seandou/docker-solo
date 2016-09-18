@@ -6,7 +6,7 @@
 
 - [VirtualBox and Extension Pack](https://www.virtualbox.org/wiki/Downloads)
 - [Ansible](http://docs.ansible.com/ansible/intro_installation.html#installation)
-- [Vagrant](https://www.vagrantup.com/downloads.html)
+- [Vagrant 1.8.4](https://releases.hashicorp.com/vagrant/1.8.4/)
 - [vagrant-vbguest](https://github.com/dotless-de/vagrant-vbguest)
 
 ```
