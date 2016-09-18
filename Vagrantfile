@@ -12,7 +12,7 @@ Vagrant.configure(2) do |config|
 
   # docker main
   config.vm.define "main" do |main|
-    main.vm.box = "centos7"
+    main.vm.box = "centos/7"
 
     main.vm.provider "virtualbox" do |vb|
       vb.customize [
