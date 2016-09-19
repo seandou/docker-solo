@@ -9,4 +9,4 @@ docker run \
     --restart=always \
     --name shipyard-swarm-agent \
     swarm:latest \
-    join --addr 0.0.0.0:2375 etcd://192.168.10.10:4001
+    join --addr 192.168.10.11:2375 etcd://192.168.10.10:4001

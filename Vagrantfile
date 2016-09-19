@@ -37,6 +37,31 @@ Vagrant.configure(2) do |config|
     main.vbguest.auto_update = true
   end
 
+  # docker node
+  # config.vm.define "node" do |node|
+  #   node.vm.box = "centos/7"
+  #
+  #   node.vm.provider "virtualbox" do |vb|
+  #     vb.customize [
+  #       "modifyvm", :id,
+  #       "--name", "docker-node",
+  #       "--cpus", "2",
+  #       "--memory", "1024",
+  #       "--vram", "64"
+  #     ]
+  #     vb.gui = DEBUG
+  #   end
+  #
+  #   node.vm.network "private_network", ip: "192.168.10.11"
+  #   node.vm.hostname = "docker-node"
+  #
+  #   node.vm.provision "ansible" do |ansible|
+  #     ansible.playbook = "provisioning/docker-node.yml"
+  #   end
+  #
+  #   node.vbguest.auto_update = true
+  # end
+
   # comment out me after initialization
   # config.ssh.username = 'root'
   # config.ssh.insert_key = false
