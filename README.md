@@ -44,17 +44,6 @@ vagrant up
 
 After vm host is up, your can ssh to server by `vagrant ssh main`.
 
-Comment out lines for using docker easily:
-
-```
-config.ssh.username = 'root'
-config.ssh.insert_key = false
-config.ssh.private_key_path = ["provisioning/roles/base/files/keys/id_rsa", "~/.vagrant.d/insecure_private_key"]
-config.vm.synced_folder ".", "/vagrant", :disabled => true
-config.vm.synced_folder ".", "/share"
-config.vm.synced_folder "#{HOME}/Projects/docker", "/root/projects"
-```
-
 ### Use shipyard
 
 [Shipyard](http://shipyard-project.com/) is installed as default management tool, you can browse [http://192.168.10.10:8080/](http://192.168.10.10:8080/) to visit it. Default username is `admin` and password is `shipyard`.

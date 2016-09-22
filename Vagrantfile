@@ -6,6 +6,7 @@
 # settings
 DEBUG = false
 HOME = Dir.home
+CWD = Dir.pwd
 
 Vagrant.configure(2) do |config|
   config.vm.network "private_network", type: "dhcp"
@@ -35,38 +36,48 @@ Vagrant.configure(2) do |config|
 
     # https://github.com/dotless-de/vagrant-vbguest
     main.vbguest.auto_update = true
+
+    if File.exists? "#{CWD}/.vagrant/machines/main/virtualbox/action_provision"
+      main.ssh.username = 'root'
+      main.ssh.insert_key = false
+      main.ssh.private_key_path = ["provisioning/roles/base/files/keys/id_rsa", "~/.vagrant.d/insecure_private_key"]
+      main.vm.synced_folder ".", "/vagrant", :disabled => true
+      main.vm.synced_folder ".", "/share"
+      main.vm.synced_folder "#{HOME}/Projects/docker", "/root/projects"
+    end
   end
 
   # docker node
-  # config.vm.define "node" do |node|
-  #   node.vm.box = "centos/7"
-  #
-  #   node.vm.provider "virtualbox" do |vb|
-  #     vb.customize [
-  #       "modifyvm", :id,
-  #       "--name", "docker-node",
-  #       "--cpus", "2",
-  #       "--memory", "1024",
-  #       "--vram", "64"
-  #     ]
-  #     vb.gui = DEBUG
-  #   end
-  #
-  #   node.vm.network "private_network", ip: "192.168.10.11"
-  #   node.vm.hostname = "docker-node"
-  #
-  #   node.vm.provision "ansible" do |ansible|
-  #     ansible.playbook = "provisioning/docker-node.yml"
-  #   end
-  #
-  #   node.vbguest.auto_update = true
-  # end
+  config.vm.define "node" do |node|
+    node.vm.box = "centos/7"
 
-  # comment out me after initialization
-  # config.ssh.username = 'root'
-  # config.ssh.insert_key = false
-  # config.ssh.private_key_path = ["provisioning/roles/base/files/keys/id_rsa", "~/.vagrant.d/insecure_private_key"]
-  # config.vm.synced_folder ".", "/vagrant", :disabled => true
-  # config.vm.synced_folder ".", "/share"
-  # config.vm.synced_folder "#{HOME}/Projects/docker", "/root/projects"
+    node.vm.provider "virtualbox" do |vb|
+      vb.customize [
+        "modifyvm", :id,
+        "--name", "docker-node",
+        "--cpus", "2",
+        "--memory", "1024",
+        "--vram", "64"
+      ]
+      vb.gui = DEBUG
+    end
+
+    node.vm.network "private_network", ip: "192.168.10.11"
+    node.vm.hostname = "docker-node"
+
+    node.vm.provision "ansible" do |ansible|
+      ansible.playbook = "provisioning/docker-node.yml"
+    end
+
+    node.vbguest.auto_update = true
+
+    if File.exists? "#{CWD}/.vagrant/machines/node/virtualbox/action_provision"
+      node.ssh.username = 'root'
+      node.ssh.insert_key = false
+      node.ssh.private_key_path = ["provisioning/roles/base/files/keys/id_rsa", "~/.vagrant.d/insecure_private_key"]
+      node.vm.synced_folder ".", "/vagrant", :disabled => true
+      node.vm.synced_folder ".", "/share"
+      node.vm.synced_folder "#{HOME}/Projects/docker", "/root/projects"
+    end
+  end
 end
