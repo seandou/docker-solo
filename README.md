@@ -53,7 +53,7 @@ After vm host is up, your can ssh to server by `vagrant ssh main`.
 ### [Docker Compose](https://docs.docker.com/compose/overview/)
 
 ```
-curl -L https://github.com/docker/compose/releases/download/1.8.0/docker-compose-`uname -s`-`uname -m` > /usr/local/bin/docker-compose
+curl -L https://github.com/docker/compose/releases/download/1.8.1/docker-compose-`uname -s`-`uname -m` > /usr/local/bin/docker-compose
 chmod +x /usr/local/bin/docker-compose
 ```
 
