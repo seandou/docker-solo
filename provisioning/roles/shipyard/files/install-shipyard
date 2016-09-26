@@ -1,6 +1,13 @@
 #!/bin/bash
 
+# References:
 # http://shipyard-project.com/docs/deploy/manual/
+# 
+# Required docker images:
+# - rethinkdb
+# - microbox/etcd
+# - swarm:latest
+# - shipyard/shipyard:latest
 
 # Datastore
 docker run \
