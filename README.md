@@ -60,7 +60,7 @@ chmod +x /usr/local/bin/docker-compose
 ### [DockerUI](https://github.com/kevana/ui-for-docker)
 
 ```
-docker run -d -p 9000:9000 --restart=always --name ui-for-docker --privileged \
+docker run -d -p 9000:9000 --restart=always --name docker-ui --privileged \
   -v /var/run/docker.sock:/var/run/docker.sock \
   uifd/ui-for-docker
 ```
