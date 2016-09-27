@@ -3,6 +3,7 @@
   with_items:
     - net-tools
     - bridge-utils
+    - httpd-tools
     - vim
     - wget
     - telnet
