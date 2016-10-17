@@ -13,6 +13,12 @@
 vagrant plugin install vagrant-vbguest
 ```
 
+- [Vagrant Host Manager](https://github.com/devopsgroup-io/vagrant-hostmanager) (optional)
+
+```
+vagrant plugin install vagrant-hostmanager
+```
+
 - [vagrant-env](https://github.com/gosuri/vagrant-env) (optional)
 
 ```
